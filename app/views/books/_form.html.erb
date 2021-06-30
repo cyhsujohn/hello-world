@@ -15,8 +15,21 @@
   </div>
 
   <div class="field">
+    <%= form.label :isbn, "ISBN" %>
+    <%= form.text_field :isbn %>
+  </div>
+
+  <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover, "Cover Picture" %>
+      <% if book.cover.attached? %>
+        <td><image src="<%= (url_for(book.cover)) %>"></image></td>
+      <% end %>
+    <%= form.file_field :cover %>
   </div>
 
   <div class="field">
