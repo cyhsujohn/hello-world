@@ -11,6 +11,13 @@
 </p>
 
 <p>
+  <strong>Cover Picture:</strong>
+  <% if @book.cover.attached? %>
+    <td><image src="<%= (url_for(@book.cover)) %>"></image></td>
+  <% end %>
+</p>
+
+<p>
   <strong>Content:</strong>
   <%= @book.content %>
 </p>

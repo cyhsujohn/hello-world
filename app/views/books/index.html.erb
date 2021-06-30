@@ -9,6 +9,7 @@
       <th>Content</th>
       <th>Publish date</th>
       <th>ISBN</th>
+      <th>Cover Picture</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,11 @@
         <td><%= book.content %></td>
         <td><%= book.publish_date %></td>
         <td><%= book.isbn %></td>
+        <% if book.cover.attached? %>
+          <td><image src="<%= (url_for(book.cover)) %>"></image></td>
+        <% else %>
+          <td></td>
+        <% end %>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

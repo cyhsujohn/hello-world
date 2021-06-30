@@ -25,6 +25,14 @@
   </div>
 
   <div class="field">
+    <%= form.label :cover, "Cover Picture" %>
+      <% if book.cover.attached? %>
+        <td><image src="<%= (url_for(book.cover)) %>"></image></td>
+      <% end %>
+    <%= form.file_field :cover %>
+  </div>
+
+  <div class="field">
     <%= form.label :publish_date %>
     <%= form.date_select :publish_date %>
   </div>
